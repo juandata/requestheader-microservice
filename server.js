@@ -1,22 +1,18 @@
-// server.js
-// where your node app starts
+/******************************************************
+ * This is the Request Header Parser Microservice server file
+ * Developed by JDA to potential clients
+ * ***************************************************/
 
-// init project
 var express = require('express');
 var app = express();
 
-// we've started you off with Express, 
-// but feel free to use whatever libs or frameworks you'd like through `package.json`.
-
-// http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
 
 // http://expressjs.com/en/starter/basic-routing.html
-app.get("/", function (request, response) {
-  response.sendFile(__dirname + '/views/index.html');
+app.use(function (req, res) {
+  res.send("hola");
 });
 
-// listen for requests :)
-var listener = app.listen(process.env.PORT, function () {
-  console.log('Your app is listening on port ' + listener.address().port);
+app.listen(process.env.PORT, function () {
 });
+
