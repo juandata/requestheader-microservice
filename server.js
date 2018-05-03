@@ -7,10 +7,11 @@ var express = require('express');
 var app = express();
 
 app.use(express.static('public'));
-
-// http://expressjs.com/en/starter/basic-routing.html
 app.use(function (req, res) {
-res.send("hola");
+  var ip = req.headers['x-forwarded-for'].split(',')[0];
+  console.log(req.headers);
+  console.log(ip);
+  res.end();
 });
 app.listen(process.env.PORT, function () {
 });
