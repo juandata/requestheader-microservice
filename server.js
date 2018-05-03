@@ -10,8 +10,10 @@ app.use(express.static('public'));
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.use(function (req, res) {
-  //s.send(res.headersSent);
-  res.download("/assets/download.jpg");
+  //s.send(res.headersSent);v
+  var h = res.get('Content-Type');
+  res.send(h);
+  console.log(h);
 });
 
 app.listen(process.env.PORT, function () {
